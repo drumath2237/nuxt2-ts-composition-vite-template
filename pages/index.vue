@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, useMeta } from '@nuxtjs/composition-api'
+import { defineComponent, reactive } from '@nuxtjs/composition-api'
 
 interface State {
   message: string
@@ -18,16 +18,12 @@ interface State {
 
 export default defineComponent({
   setup(): {} {
-    const { title } = useMeta()
-    title.value = 'Nuxt2 with composition API!'
-
     const state = reactive<State>({
-      message: 'Hello!',
+      message: 'Hellooooo!',
     })
 
     return { state }
   },
-  head: {},
 })
 </script>
 
