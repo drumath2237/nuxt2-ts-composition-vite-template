@@ -2,38 +2,30 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">nuxt2-ts-composition-vite-template</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h1 class="title">
+        {{ state.message }} from Nuxt+ts+composition-api+vite
+      </h1>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, useMeta } from '@nuxtjs/composition-api'
+import { defineComponent, reactive, useMeta } from '@nuxtjs/composition-api'
+
+interface State {
+  message: string
+}
 
 export default defineComponent({
   setup(): {} {
     const { title } = useMeta()
     title.value = 'Nuxt2 with composition API!'
 
-    return {}
+    const state = reactive<State>({
+      message: 'Hello!',
+    })
+
+    return { state }
   },
   head: {},
 })
