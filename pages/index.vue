@@ -26,9 +26,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, useMeta } from '@nuxtjs/composition-api'
 
-export default Vue.extend({})
+export default defineComponent({
+  setup(): {} {
+    const { title } = useMeta()
+    title.value = 'Nuxt2 with composition API!'
+
+    return {}
+  },
+  head: {},
+})
 </script>
 
 <style>
